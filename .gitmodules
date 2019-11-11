@@ -4,3 +4,6 @@
 [submodule "licensingservice"]
 	path = licensingservice
 	url = git@github.com:ayondeep/microservices/licensingservice.git
+[submodule "Oauth2Service"]
+	path = Oauth2Service
+	url = git@github.com:/ayondeep/microservices/oauth2service.git
