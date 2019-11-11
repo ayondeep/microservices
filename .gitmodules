@@ -1,0 +1,6 @@
+[submodule "configserver"]
+	path = configserver
+	url = git@github.com:ayondeep/microservices/configserver.git
+[submodule "licensingservice"]
+	path = licensingservice
+	url = git@github.com:ayondeep/microservices/licensingservice.git
