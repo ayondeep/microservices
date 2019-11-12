@@ -36,6 +36,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter{
 
     /**
      * Defines the different components used within the AuthenticationServerConfigurer.
+     * Exposes /auth/oauth/token and /auth/user endpoints
      * @param endPoints
      * @throws Exception
      */
@@ -44,7 +45,4 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter{
         endPoints.authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
     }
-
-
-
 }
