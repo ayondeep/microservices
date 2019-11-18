@@ -35,16 +35,18 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         return super.userDetailsServiceBean();
   }
 
-  @Override
-  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    @Override
+    protected void configure(
+            AuthenticationManagerBuilder auth)
+throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("ayondeep")
-                .password("password")
-                .roles("USER")
+                .withUser("kamal")
+ .password("password1")
+ .roles("USER")
                 .and()
-                .withUser("sysadmin")
+ .withUser("ayondeep")
                 .password("password2")
-                .roles("USER", "ADMIN");
-  }
+ .roles("USER", "ADMIN");
+    }
 
 }

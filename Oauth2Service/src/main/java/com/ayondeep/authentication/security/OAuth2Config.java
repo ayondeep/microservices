@@ -11,7 +11,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 /**
  * Defines what applications and the user credentials the OAuth2 service knows about.
  */
-@Configuration
+//@Configuration
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter{
 
     @Autowired
@@ -26,23 +26,31 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter{
      * @throws Exception
      */
     @Override
-    public void configure (ClientDetailsServiceConfigurer clients) throws Exception {
+    public void configure(ClientDetailsServiceConfigurer clients) throws
+            Exception {
         clients.inMemory()
-                .withClient("eagleeye")
+                .withClient("myapp")
                 .secret("thisissecret")
-                .authorizedGrantTypes("refresh_token", "password", "client_credentials")
-                .scopes("webclient", "mobileclient");
+                .authorizedGrantTypes(
+                         "refresh_token",
+                         "password",
+                         "client_credentials")
+                                .scopes("webclient","mobileclient");
     }
 
     /**
      * Defines the different components used within the AuthenticationServerConfigurer.
      * Exposes /auth/oauth/token and /auth/user endpoints
-     * @param endPoints
+     * @param endpoints
      * @throws Exception
      */
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endPoints) throws Exception {
-        endPoints.authenticationManager(authenticationManager)
+    public void configure(
+ AuthorizationServerEndpointsConfigurer endpoints)
+            throws Exception {
+        endpoints
+                .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
     }
 }
+
